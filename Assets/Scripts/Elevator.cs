@@ -15,14 +15,14 @@ public class Elevator : MonoBehaviour
     void Start()
     {
         count = 6f;
-        isDown = true;
+        //isDown = true;
     }
 
     void Update()
     {
         count = count - Time.deltaTime;
        
-        if (count < 0f)
+        if (count <= 0f)
         {
             count = 6f;
             isDown = !isDown;
@@ -30,7 +30,7 @@ public class Elevator : MonoBehaviour
         
 
         //descer
-        if (transform.position.y >= 0.52 && isDown)
+        if (transform.position.y >= posCurrent.y && isDown)
         {
            
             transform.position = Vector3.Lerp(transform.position, posNew, Time.deltaTime * speed);
@@ -38,7 +38,7 @@ public class Elevator : MonoBehaviour
         }
 
         //Senão
-        else if (transform.position.y <= 3.5f && !isDown)
+        else if (transform.position.y <= posNew.y && !isDown)
         {
             transform.position = Vector3.Lerp(transform.position, posCurrent, Time.deltaTime * speed);
         }
