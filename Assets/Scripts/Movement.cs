@@ -112,7 +112,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) playerAnimator.Play("Chicken Dance");
 
-        print(playerAnimator.GetBool("isJump"));
+        //print(playerAnimator.GetBool("isJump"));
 
         if (player.velocity.z != 0 || player.velocity.x != 0)
         {
