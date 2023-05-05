@@ -26,7 +26,7 @@ public class Interact : MonoBehaviour
 
             if (hit.transform.tag == "Coin")
             {
-                SystemGame.Coin();
+                SystemGame.AddCoin();
                 Destroy(hit.transform.gameObject);
             }
 

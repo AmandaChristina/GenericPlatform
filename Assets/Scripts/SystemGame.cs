@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SystemGame : MonoBehaviour
 {
-    public static int coin;
-    static int smallCoin = 50;
+    //Ser mostrada na HUD
+    public static int coinTotal; // uma variável pública e estática: A roupa na vitrine.
 
-    public static int Coin()
+    static int smallCoin = 50; //estática, não é visível nem alterável em outros Scripts
+
+
+    public static int AddCoin() //Método que adiciona smallCoin á totalCoin;
     {
-        return coin += smallCoin; 
+        return coinTotal += smallCoin; 
     }
 }
