@@ -7,6 +7,7 @@ public class Interact : MonoBehaviour
     [SerializeField]
     float distance = 500f;
 
+
     void Start()
     {
 
@@ -26,10 +27,12 @@ public class Interact : MonoBehaviour
 
             if (hit.transform.tag == "Coin")
             {
-                SystemGame.AddCoin();
+                SystemGame.AddCoin(hit.transform.GetComponent<AudioSource>());
                 Destroy(hit.transform.gameObject);
             }
 
         }
     }
+
+    
 }

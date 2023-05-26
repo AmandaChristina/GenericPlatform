@@ -55,12 +55,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\Elevator.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
+    <Compile Include="Assets\Scripts\NavMeshEnemy.cs" />
     <Compile Include="Assets\Scripts\Game\ReloadScene.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Game\Interact.cs" />
     <Compile Include="Assets\Scripts\Game\Movement.cs" />
     <Compile Include="Assets\Scripts\Game\SystemGame.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ScenesManager.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -9,7 +9,8 @@ public class ReloadScene : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player") SceneManager.LoadScene(1);
+        if (other.gameObject.tag == "Player") SystemGame.LostLife();
+
         
     }
 }

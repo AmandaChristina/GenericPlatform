@@ -6,18 +6,20 @@ using TMPro;
 public class HUD : MonoBehaviour
 {
     static TextMeshProUGUI debugText;
-    TextMeshProUGUI coinText;
+    TextMeshProUGUI coinText, lifeText;
 
     void Start()
     {
         debugText = GameObject.Find("Debug").GetComponent<TextMeshProUGUI>();
         coinText = GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>();
+        lifeText = GameObject.Find("VidaText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        coinText.text = SystemGame.coinTotal.ToString();
+        lifeText.text = "Vida: " + SystemGame.vida;
+        coinText.text = "Moeda: " + SystemGame.coinTotal;
     }
 
     //Método = Functions
