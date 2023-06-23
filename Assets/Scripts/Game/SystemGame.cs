@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class SystemGame : MonoBehaviour
 {
 
-
+    static AudioSource soundCoin;
 
     //Ser mostrada na HUD
     public static int coinTotal; // uma variável pública e estática: A roupa na vitrine.
@@ -16,8 +16,12 @@ public class SystemGame : MonoBehaviour
 
     public static int vida = 3;
 
+    void Start()
+    {
+        soundCoin = GetComponent<AudioSource>();    
+    }
 
-    public static int AddCoin(AudioSource soundCoin) //Método que adiciona smallCoin á totalCoin;
+    public static int AddCoin() //Método que adiciona smallCoin á totalCoin;
     {
         soundCoin.Play();
         return coinTotal += smallCoin; 

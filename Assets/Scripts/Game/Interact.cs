@@ -8,6 +8,7 @@ public class Interact : MonoBehaviour
     float distance = 500f;
 
 
+
     void Start()
     {
 
@@ -27,7 +28,7 @@ public class Interact : MonoBehaviour
 
             if (hit.transform.tag == "Coin")
             {
-                SystemGame.AddCoin(hit.transform.GetComponent<AudioSource>());
+                SystemGame.AddCoin();
                 Destroy(hit.transform.gameObject);
             }
 
