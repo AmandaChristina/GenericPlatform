@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI; //Biblioteca do NavMesh
 
 public class NavMeshEnemy : MonoBehaviour
 {
-    NavMeshAgent navMeshAgent;
-    GameObject playerObj;
+    //LOCAL DAS VARIÁVEIS
+
+    NavMeshAgent navMeshAgent;  //guardar o componente do inimigo
+    GameObject playerObj;   //VAI  guardar o objeto Jogador
 
 
-    [SerializeField]
-    Transform[] waypoint;
-    float distancePlayer, distanceWaypoint;
-    public int contadorWaypoints;
+    [SerializeField]    // deixar visível a variável abaixo
+    Transform[] waypoint;   //Isso aqui é um array
+    float distancePlayer, distanceWaypoint;  //Guardar distâncias
+    public int contadorWaypoints;       //Conta o objetivo do inimigo
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        playerObj = GameObject.Find("Player");
+        //Atribuindo variável -> Colocando as coisas dentro
+        navMeshAgent = GetComponent<NavMeshAgent>(); //Enfiando componente inimigo
+        playerObj = GameObject.Find("Player"); //Enfiando o Objeto Jogador
     }
 
     // Update is called once per frame
@@ -27,17 +30,16 @@ public class NavMeshEnemy : MonoBehaviour
         distancePlayer = Vector3.Distance(playerObj.transform.position, transform.position);
         distanceWaypoint = Vector3.Distance(navMeshAgent.destination, transform.position);
 
-
+        //Se não chegou ao máximo de waypoints e ta perto dele
         if (contadorWaypoints < waypoint.Length && distanceWaypoint < 1.6f)
         {
-            contadorWaypoints++;
+            contadorWaypoints++; //vai pro próximo
         }
+        //Agora se chegou no máximo de waypoints, volta pro primeiro
         else if (contadorWaypoints == waypoint.Length) contadorWaypoints = 0;
 
-
+        //Atualiza o objetivo do inimigo
         navMeshAgent.SetDestination(waypoint[contadorWaypoints].position);
-
-
 
 
     }
