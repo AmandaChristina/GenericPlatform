@@ -28,27 +28,42 @@ public class NavMeshEnemy : MonoBehaviour
     {
         //distancia entre o inimigo e o jogador
         distancePlayer = Vector3.Distance(playerObj.transform.position, transform.position);
-        distanceWaypoint = Vector3.Distance(navMeshAgent.destination, transform.position);
 
-        //Se não chegou ao máximo de waypoints e ta perto dele
-        if (contadorWaypoints < waypoint.Length && distanceWaypoint < 1.6f)
-        {
-            contadorWaypoints++; //vai pro próximo
-        }
-        //Agora se chegou no máximo de waypoints, volta pro primeiro
-        else if (contadorWaypoints == waypoint.Length) contadorWaypoints = 0;
+        //Verifica se o Player está perto
+        if (distancePlayer < 5f) FollowPlayer();
 
-        //Atualiza o objetivo do inimigo
+        //Caso não, volte a patrulhar
+        else Patrol();
+
+    }
+   
+    void Patrol()
+    {
+        //seta o destido do agente no inicio do código
         navMeshAgent.SetDestination(waypoint[contadorWaypoints].position);
 
+        //distancia entre o inimigo e o destido
+        distanceWaypoint = Vector3.Distance(navMeshAgent.destination, transform.position);
 
+        //verificando se chegou no waypoint
+        //Lembrando 
+        if (distanceWaypoint < 1.2f)
+        {
+            contadorWaypoints++;//continua contando
+
+            //se o contador de waypoints passa do limite da Index
+            if (contadorWaypoints == waypoint.Length)
+            {
+                //zera a contagem
+                contadorWaypoints = 0;
+            }
+        }
     }
 
     void FollowPlayer()
     {
-        if (distancePlayer < 10f)
-        {
-            navMeshAgent.SetDestination(playerObj.transform.position);
-        }
+
+        navMeshAgent.SetDestination(playerObj.transform.position);
+        
     }
 }
