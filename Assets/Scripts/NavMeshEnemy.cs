@@ -30,7 +30,7 @@ public class NavMeshEnemy : MonoBehaviour
         distancePlayer = Vector3.Distance(playerObj.transform.position, transform.position);
 
         //Verifica se o Player está perto
-        if (distancePlayer < 5f) FollowPlayer();
+        if (distancePlayer < 10f) FollowPlayer();
 
         //Caso não, volte a patrulhar
         else Patrol();
