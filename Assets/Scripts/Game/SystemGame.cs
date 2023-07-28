@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class SystemGame : MonoBehaviour
 {
-
+    public static Scene scene;
     static AudioSource soundCoin;
 
     //Ser mostrada na HUD
@@ -18,7 +18,10 @@ public class SystemGame : MonoBehaviour
 
     void Start()
     {
-        soundCoin = GetComponent<AudioSource>();    
+        scene = SceneManager.GetActiveScene();
+        soundCoin = GetComponent<AudioSource>();
+
+
     }
 
     public static int AddCoin() //Método que adiciona smallCoin á totalCoin;
@@ -33,7 +36,7 @@ public class SystemGame : MonoBehaviour
         {
             vida--;
             coinTotal = 0;
-            SceneManager.LoadScene("Fase1");
+            SceneManager.LoadScene(scene.name);
         }else{
             SceneManager.LoadScene("GameOver");
         }
