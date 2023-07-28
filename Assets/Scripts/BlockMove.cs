@@ -28,18 +28,17 @@ public class BlockMove : MonoBehaviour
 
         distanceBetweenPositions = Vector3.Distance(transform.position, currentPosition);
 
-        
         transform.position = Vector3.Lerp(transform.position, currentPosition, timeInterpolate * speedMovement);
 
-        if (isNext)
+        if (distanceBetweenPositions < 1f)
         {
-            currentPosition = nextPosition;
+            isNext = !isNext;
         }
+
+
+        if (isNext) currentPosition = nextPosition;
         else currentPosition = initialPosition;
 
-        if (distance < 3 && isNext)
-        {
-            isNext = false;
-        }
+
     }
 }
