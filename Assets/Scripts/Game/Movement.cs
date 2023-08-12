@@ -36,27 +36,30 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
+        MovePlayer(SystemGame.moveState);
         Jump();
         AnimationMethod();
+
     }
 
-    void MovePlayer()
+    void MovePlayer(bool isMove)
     {
-        //Inputs 
-        //WASD; Setas; Joystick;
-        moveX = Input.GetAxis("Horizontal");
-        moveZ = Input.GetAxis("Vertical");
 
-        //Atribui a uma variável vector3
-        //Normalized: Personagem não andar rápido em diagonal 
-        //move = new Vector3(moveX, velocity.y, moveZ).normalized;
-        move = new Vector3(moveX, velocity.y, moveZ);
-        move = transform.TransformDirection(move);
+        if (isMove) { 
+            //Inputs 
+            //WASD; Setas; Joystick;
+            moveX = Input.GetAxis("Horizontal");
+            moveZ = Input.GetAxis("Vertical");
 
-        //Função do Character Controller: Move
-        player.Move(move * Time.deltaTime * speed);
+            //Atribui a uma variável vector3
+            //Normalized: Personagem não andar rápido em diagonal 
+            //move = new Vector3(moveX, velocity.y, moveZ).normalized;
+            move = new Vector3(moveX, velocity.y, moveZ);
+            move = transform.TransformDirection(move);
 
+            //Função do Character Controller: Move
+            player.Move(move * Time.deltaTime * speed);
+        }
     }
     //void Jump()
     //{

@@ -9,7 +9,7 @@ public class ReloadScene : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Player") SystemGame.LostLife();
+        if (other.gameObject.tag == "Player") SystemGame.FallingLife();
 
         
     }

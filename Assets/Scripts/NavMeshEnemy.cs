@@ -26,6 +26,7 @@ public class NavMeshEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region behavior
         //distancia entre o inimigo e o jogador
         distancePlayer = Vector3.Distance(playerObj.transform.position, transform.position);
 
@@ -34,9 +35,11 @@ public class NavMeshEnemy : MonoBehaviour
 
         //Caso não, volte a patrulhar
         else Patrol();
+        #endregion 
+
 
     }
-   
+
     void Patrol()
     {
         //seta o destido do agente no inicio do código
@@ -63,7 +66,39 @@ public class NavMeshEnemy : MonoBehaviour
     void FollowPlayer()
     {
 
+        //Lembrando que tem que parar a animação depois
+        if (distancePlayer < 2.5f)
+        {
+            RotationToPlayer();
+            navMeshAgent.isStopped = true;
+        }
+        else navMeshAgent.isStopped = false;
+
         navMeshAgent.SetDestination(playerObj.transform.position);
+
+
+    }
+
+    void RotationToPlayer()
+    {
+        //Pelo que entendi a diferença entre os dois se dá por um é focado em rotation, já o outro muda todo o transform e rotation para um objeto, mas não tenho certeza 
+
+        Vector3 positionTo = playerObj.transform.position - transform.position;
+        Quaternion rotationTo = Quaternion.LookRotation(positionTo, Vector3.up);
+        transform.rotation = rotationTo;
+
+        //With LookAt
+        //transform.LookAt(playerObj.transform);
+    }
+
+  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SystemGame.DamageLife();
+        }
         
     }
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEditor;
 
 public class SystemGame : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SystemGame : MonoBehaviour
     static int smallCoin = 50; //estática, não é visível nem alterável em outros Scripts
 
     public static int vida = 3;
+    public static bool moveState = true;
 
     void Start()
     {
@@ -24,24 +26,42 @@ public class SystemGame : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if(vida <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
     public static int AddCoin() //Método que adiciona smallCoin á totalCoin;
     {
         soundCoin.Play();
         return coinTotal += smallCoin; 
     }
 
-    public static void LostLife()
+    public static void FallingLife()
     {
         if(vida > 0)
         {
             vida--;
             coinTotal = 0;
             SceneManager.LoadScene(scene.name);
-        }else{
-            SceneManager.LoadScene("GameOver");
         }
+    }
 
-        print(vida);
+    public static void DamageLife()
+    {
+        if (vida > 0) vida--;
+
+        BlockMovePlayer();
+    }
+
+    public static IEnumerator BlockMovePlayer()
+    {
+        moveState = false;
+        yield return new WaitForSeconds(2f);
+        moveState = true;
     }
 
 }
