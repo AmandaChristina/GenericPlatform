@@ -3132,7 +3132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902891815900645558, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.350003
+      value: 28.98
       objectReference: {fileID: 0}
     - target: {fileID: 1902891815900645558, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3140,7 +3140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902891815900645558, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.27
+      value: 80.48
       objectReference: {fileID: 0}
     - target: {fileID: 1902891815900645558, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3169,6 +3169,14 @@ PrefabInstance:
     - target: {fileID: 1902891815900645558, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015853627081491091, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015853627081491091, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53413ef232deb95418e6b7848504ce5c, type: 3}
@@ -4075,7 +4083,7 @@ MonoBehaviour:
   speedMovement: 0.5
   distanceBetweenPositions: 0
   isNext: 1
-  distance: {x: -11, y: 0, z: 0}
+  distance: {x: -12, y: 0, z: 0}
 --- !u!65 &1587461409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5970,7 +5978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147559134199}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.04, y: -1.4700001, z: 79.97}
+  m_LocalPosition: {x: 28.7, y: -1.4700001, z: 79.97}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6035,7 +6043,7 @@ BoxCollider:
   m_GameObject: {fileID: 919132147559134199}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.30357295, z: 0.99999994}
   m_Center: {x: 0, y: 0.36430535, z: 0}
